@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fitness_user_db?timezone=Asia/Kolkata
+    username: postgres
+    password: aadi@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Kolkata
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
