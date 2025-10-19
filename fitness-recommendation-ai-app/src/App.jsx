@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "react-oauth2-code-pkce";
 import { useDispatch } from "react-redux";
-import { BrowserRouter as Router, Navigate, Route, Routes, useLocation } from "react-router";
+import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router";
 import { setCredentials } from "./store/authSlice";
 import ActivityForm from "./components/ActivityForm";
 import ActivityList from "./components/ActivityList";
@@ -16,9 +16,9 @@ const ActvitiesPage = () => {
 }
 
 function App() {
-  const { token, tokenData, logIn, logOut, isAuthenticated } = useContext(AuthContext);
+  const { token, tokenData, logIn, logOut} = useContext(AuthContext);
   const dispatch = useDispatch();
-  const [authReady, setAuthReady] = useState(false);
+  const [, setAuthReady] = useState(false);
   
   useEffect(() => {
     if (token) {
@@ -53,13 +53,6 @@ function App() {
       </Button>
     </Box>
             ) : (
-              // <div>
-              //   <pre>{JSON.stringify(tokenData, null, 2)}</pre>
-              //   <pre>{JSON.stringify(token, null, 2)}</pre>
-              // </div>
-
-             
-
               <Box sx={{ p: 2, border: '1px dashed grey' }}>
                  <Button variant="contained" color="secondary" onClick={logOut}>
                   Logout

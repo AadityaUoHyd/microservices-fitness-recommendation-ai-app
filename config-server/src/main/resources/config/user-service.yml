@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/fitness_user_db?timezone=Asia/Kolkata
+    url: jdbc:postgresql://localhost:5432/fitness_user_db
     username: postgres
     password: aadi@123
   jpa:
@@ -13,7 +13,12 @@ spring:
       hibernate:
         jdbc:
           time_zone: Asia/Kolkata
+
 eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+# VM args as -Duser.timezone=Asia/Kolkata
